@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Planes}</title>
+  <link href="../static/planes.css" rel="stylesheet" th:href="@{/planes.css}" type="text/css">
+</head>
+<body>
+<h1>Planes</h1>
+<table>
+  <thead>
+  <tr>
+    <th scope="col">Flight</th>
+    <th scope="col">Destination</th>
+    <th scope="col">Aircraft</th>
+    <th scope="col">ETA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="plane : ${planes}">
+    <td th:text="${plane.callsign}">P2C02</td>
+    <td th:text="${plane.destination}">TEHRAN</td>
+    <td th:text="${plane.aircraft}">CYCLONE-P</td>
+    <td th:text="${plane.eta}">LANDED</td>
+  </tr>
+  </tbody>
+</table>
+<footer>
+  <h3>Available Plane Slots:</h3>
+  <h1 th:text="${availablePlaneSlots}">3</h1>
+</footer>
+</body>
+</html>
