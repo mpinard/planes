@@ -1,0 +1,59 @@
+buildscript {
+    ext {
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "io.spring.gradle:dependency-management-plugin:${dependencyManagementVersion}"
+    }
+	repositories {
+		mavenCentral()
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'mpinard'
+version = '0.1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+configurations {
+    compile.exclude module: "slf4j-log4j12"
+    compile.exclude module: "log4j"
+}
+
+repositories {
+	mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+
+    implementation("com.google.guava:guava:${guavaVersion}")
+
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+    testImplementation("org.junit.platform:junit-platform-engine:${junitPlatformVersion}")
+    testImplementation("org.junit.platform:junit-platform-commons:${junitPlatformVersion}")
+    testImplementation("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
+    testImplementation("org.junit.platform:junit-platform-suite:${junitPlatformVersion}")
+    testImplementation("org.assertj:assertj-core:${assertjVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+}
