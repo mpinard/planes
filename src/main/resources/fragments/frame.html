@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Fragments</title>
+  <link href="../static/planes.css" rel="stylesheet" th:href="@{/planes.css}" type="text/css">
+</head>
+<body>
+  <footer th:fragment="footer">
+    <table>
+      <thead>
+      <tr>
+        <th scope="col">Coins</th>
+        <th scope="col">Bux</th>
+        <th scope="col">Level</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td th:text="${coins}">117,527</td>
+        <td th:text="${bux}">1,249</td>
+        <td th:text="${level}">29</td>
+      </tr>
+      </tbody>
+    </table>
+  </footer>
+</body>
+</html>

@@ -25,9 +25,8 @@
   </tr>
   </tbody>
 </table>
-<footer>
-  <h3>Available Plane Slots:</h3>
-  <h1 th:text="${availablePlaneSlots}">3</h1>
-</footer>
+<h3>Available Plane Slots:</h3>
+<h1 th:text="${availablePlaneSlots}">3</h1>
+<div th:replace="../fragments/frame.html :: footer"></div>
 </body>
 </html>
