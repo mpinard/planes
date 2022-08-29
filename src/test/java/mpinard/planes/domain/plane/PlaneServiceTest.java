@@ -1,14 +1,12 @@
-package mpinard.planes.adapter.domain.plane;
+package mpinard.planes.domain.plane;
 
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PlaneServiceTest {
 
-    private static final Plane BEARCLAW = Plane.of(PlaneId.of(), "PL0001", "MADRID", "BEARCLAW-P", "IDLE");
+    private static final Plane BEARCLAW = Plane.of(PlaneId.of(), "PL0001", "MUNICH", "BEARCLAW-P", "IDLE");
     private static final Plane GRIFFON = Plane.of(PlaneId.of(), "PL0002", "BRUSSELS", "GRIFFON-C", "IDLE");
 
     private final PlaneService planeService = new PlaneService();

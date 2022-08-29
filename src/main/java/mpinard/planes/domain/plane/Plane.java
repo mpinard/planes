@@ -1,4 +1,4 @@
-package mpinard.planes.adapter.domain.plane;
+package mpinard.planes.domain.plane;
 
 import lombok.Value;
 
