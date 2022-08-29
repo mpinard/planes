@@ -17,9 +17,11 @@ public class PlanesController {
         PlaneView.of("P2C01", "TEHRAN", "CYCLONE-P", "LANDED"));
     model.addAttribute("planes", planes);
     model.addAttribute("availablePlaneSlots", "3");
+
     model.addAttribute("coins", "5");
     model.addAttribute("bux", "6");
     model.addAttribute("level", "7");
+
     return "planes";
   }
 
