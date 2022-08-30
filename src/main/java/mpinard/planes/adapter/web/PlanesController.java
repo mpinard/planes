@@ -18,9 +18,8 @@ public class PlanesController {
     model.addAttribute("planes", planes);
     model.addAttribute("availablePlaneSlots", "3");
 
-    model.addAttribute("coins", "5");
-    model.addAttribute("bux", "6");
-    model.addAttribute("level", "7");
+    model.addAttribute("coins", "15,000");
+    model.addAttribute("level", "1");
 
     return "planes";
   }
