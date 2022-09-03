@@ -1,5 +1,9 @@
-package mpinard.planes.adapter.web;
+package mpinard.planes.adapter.web.controllers;
 
+import lombok.AllArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import mpinard.planes.adapter.web.views.AirportViewService;
+import mpinard.planes.adapter.web.views.PlaneView;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
+@AllArgsConstructor
+@FieldDefaults(makeFinal = true)
 public class PlanesController {
+
+  private AirportViewService airportViewService;
 
   @GetMapping("/")
   public String showPlanes(Model model) {
@@ -26,11 +34,7 @@ public class PlanesController {
 
   @GetMapping("/airports")
   public String showAirports(Model model) {
-    List<AirportView> airports = List.of(
-        AirportView.of("Berlin", "Germany", "Europe", "2", "3,769,495"),
-        AirportView.of("Brussels", "Belgium", "Europe", "1", "1,222,637"),
-        AirportView.of("Munich", "Germany", "Europe", "1", "1,488,222"));
-    model.addAttribute("airports", airports);
+    model.addAttribute("airports", airportViewService.openAirports());
 
     model.addAttribute("coins", "30,000");
     model.addAttribute("level", "1");

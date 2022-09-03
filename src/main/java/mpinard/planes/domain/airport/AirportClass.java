@@ -13,4 +13,9 @@ public enum AirportClass {
     THREE(3);
 
     private int level;
+
+    @Override
+    public String toString() {
+        return String.valueOf(level);
+    }
 }
