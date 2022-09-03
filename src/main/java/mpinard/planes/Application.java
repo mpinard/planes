@@ -1,5 +1,6 @@
 package mpinard.planes;
 
+import mpinard.planes.domain.airport.AirportService;
 import mpinard.planes.domain.common.GameClock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,11 @@ public class Application {
     @Bean
     public GameClock getGameClock() {
         return GameClock.of();
+    }
+
+    @Bean
+    public AirportService getAirportService() {
+        return new AirportService();
     }
 
 }

@@ -34,7 +34,7 @@ public class PlanesController {
 
   @GetMapping("/airports")
   public String showAirports(Model model) {
-    model.addAttribute("airports", airportViewService.openAirports());
+    model.addAttribute("airports", airportViewService.allAirports());
 
     model.addAttribute("coins", "30,000");
     model.addAttribute("level", "1");
