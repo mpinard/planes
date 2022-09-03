@@ -8,6 +8,8 @@ import mpinard.planes.domain.common.Coordinates;
 @Value(staticConstructor = "of")
 public class Airport {
     private String name;
+    private String country;
+    private String continent;
     private AirportClass airportClass;
     private int population;
     private Coordinates coordinates;

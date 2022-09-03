@@ -7,33 +7,37 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class AirportTest {
 
-    private static final Airport TEHRAN_AIRPORT = Airport.of(
-        "TEHRAN",
-        AirportClass.INTERNATIONAL,
-        10_000_000,
-        Coordinates.of(7188, 3988),
+    private static final Airport BERLIN_AIRPORT = Airport.of(
+        "Berlin",
+        "Germany",
+        "Europe",
+        AirportClass.TWO,
+        3_769_495,
+        Coordinates.of(6112, 3324),
         false);
 
     @Test
     public void When_AirportCreated_Expect_Created() {
-        assertTehranValues(TEHRAN_AIRPORT, false);
+        assertBerlinValues(BERLIN_AIRPORT, false);
     }
 
     @Test
     public void When_AirportPurchased_Expect_OpenIsTrue() {
-        assertTehranValues(TEHRAN_AIRPORT.purchase(), true);
+        assertBerlinValues(BERLIN_AIRPORT.purchase(), true);
     }
 
     @Test
     public void When_AirportClosed_Expect_OpenIsFalse() {
-        assertTehranValues(TEHRAN_AIRPORT.purchase().close(), false);
+        assertBerlinValues(BERLIN_AIRPORT.purchase().close(), false);
     }
 
-    private void assertTehranValues(Airport airport, boolean expectedIsOpen) {
-        assertThat(airport.getName()).isEqualTo("TEHRAN");
-        assertThat(airport.getAirportClass()).isEqualTo(AirportClass.INTERNATIONAL);
-        assertThat(airport.getPopulation()).isEqualTo(10_000_000);
-        assertThat(airport.getCoordinates()).isEqualTo(Coordinates.of(7188, 3988));
+    private void assertBerlinValues(Airport airport, boolean expectedIsOpen) {
+        assertThat(airport.getName()).isEqualTo("Berlin");
+        assertThat(airport.getCountry()).isEqualTo("Germany");
+        assertThat(airport.getContinent()).isEqualTo("Europe");
+        assertThat(airport.getAirportClass()).isEqualTo(AirportClass.TWO);
+        assertThat(airport.getPopulation()).isEqualTo(3_769_495);
+        assertThat(airport.getCoordinates()).isEqualTo(Coordinates.of(6112, 3324));
         assertThat(airport.isOpen()).isEqualTo(expectedIsOpen);
 
     }

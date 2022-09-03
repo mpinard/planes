@@ -8,9 +8,9 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true)
 public enum AirportClass {
-    REGIONAL(1),
-    MUNICIPAL(2),
-    INTERNATIONAL(3);
+    ONE(1),
+    TWO(2),
+    THREE(3);
 
     private int level;
 }
