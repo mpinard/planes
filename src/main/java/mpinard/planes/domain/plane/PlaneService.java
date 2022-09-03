@@ -1,12 +1,12 @@
 package mpinard.planes.domain.plane;
 
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(makeFinal = true)
 public class PlaneService {
 
