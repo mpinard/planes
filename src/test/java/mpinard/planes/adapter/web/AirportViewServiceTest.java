@@ -22,4 +22,10 @@ public class AirportViewServiceTest {
         assertThat(airportViewService.allAirports()).containsExactly(BARCELONA, BERLIN, BRUSSELS, MUNICH);
     }
 
+    @Test
+    public void When_OpenAirports_Expect_OpenAirports() {
+        assertThat(airportViewService.openAirports()).containsExactly(BERLIN, BRUSSELS, MUNICH);
+    }
+
+
 }

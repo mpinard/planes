@@ -20,7 +20,7 @@ public class AirportViewService {
     }
 
     public List<AirportView> openAirports() {
-        return List.of();
+        return airportService.openAirports().stream().map(AirportView::of).collect(Collectors.toUnmodifiableList());
     }
 
 }
