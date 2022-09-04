@@ -8,4 +8,6 @@ public interface AirportRepository {
 
     List<Airport> findAllOpen();
 
+    List<Airport> saveAll(Iterable<Airport> airports);
+
 }

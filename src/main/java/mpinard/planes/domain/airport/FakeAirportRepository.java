@@ -1,23 +1,17 @@
 package mpinard.planes.domain.airport;
 
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import static mpinard.planes.domain.airport.Airports.BARCELONA;
-import static mpinard.planes.domain.airport.Airports.BERLIN;
-import static mpinard.planes.domain.airport.Airports.BRUSSELS;
-import static mpinard.planes.domain.airport.Airports.MUNICH;
+import java.util.stream.StreamSupport;
 
 @FieldDefaults(makeFinal = true)
+@NoArgsConstructor(staticName = "of")
 public class FakeAirportRepository implements AirportRepository {
 
     private CopyOnWriteArrayList<Airport> airports = new CopyOnWriteArrayList<>();
-
-    public FakeAirportRepository() {
-        airports.addAll(List.of(BARCELONA, BERLIN, BRUSSELS, MUNICH));
-    }
 
     @Override
     public List<Airport> findAll() {
@@ -28,5 +22,11 @@ public class FakeAirportRepository implements AirportRepository {
     public List<Airport> findAllOpen() {
         return airports.stream()
             .filter(Airport::isOpen).toList();
+    }
+
+    @Override
+    public List<Airport> saveAll(Iterable<Airport> toBeSaved) {
+        airports.addAll(StreamSupport.stream(toBeSaved.spliterator(), false).toList());
+        return List.copyOf(airports);
     }
 }

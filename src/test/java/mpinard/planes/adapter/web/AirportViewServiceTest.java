@@ -2,10 +2,8 @@ package mpinard.planes.adapter.web;
 
 import lombok.experimental.FieldDefaults;
 import mpinard.planes.adapter.web.views.AirportViewService;
-import mpinard.planes.domain.airport.AirportRepository;
 import mpinard.planes.domain.airport.AirportService;
 import mpinard.planes.domain.airport.AirportServiceBuilder;
-import mpinard.planes.domain.airport.FakeAirportRepository;
 import org.junit.jupiter.api.Test;
 
 import static mpinard.planes.adapter.web.AirportViewTestData.BARCELONA;
@@ -21,13 +19,13 @@ public class AirportViewServiceTest {
     private AirportViewService airportViewService = new AirportViewService(airportService);
 
     @Test
-    public void When_AllAirports_Expect_AllAirports() {
-        assertThat(airportViewService.allAirports()).containsExactly(BARCELONA, BERLIN, BRUSSELS, MUNICH);
+    public void When_All_Expect_AllAirports() {
+        assertThat(airportViewService.all()).containsExactly(BARCELONA, BERLIN, BRUSSELS, MUNICH);
     }
 
     @Test
-    public void When_OpenAirports_Expect_OpenAirports() {
-        assertThat(airportViewService.openAirports()).containsExactly(BERLIN, BRUSSELS, MUNICH);
+    public void When_Open_Expect_OpenAirports() {
+        assertThat(airportViewService.open()).containsExactly(BERLIN, BRUSSELS, MUNICH);
     }
 
 

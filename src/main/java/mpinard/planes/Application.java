@@ -1,13 +1,15 @@
 package mpinard.planes;
 
-import mpinard.planes.domain.airport.Airport;
 import mpinard.planes.domain.airport.AirportRepository;
 import mpinard.planes.domain.airport.AirportService;
+import mpinard.planes.domain.airport.Airports;
 import mpinard.planes.domain.airport.FakeAirportRepository;
 import mpinard.planes.domain.common.GameClock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 @SpringBootApplication
 public class Application {
@@ -23,12 +25,14 @@ public class Application {
 
     @Bean
     public AirportRepository airportRepository() {
-        return new FakeAirportRepository();
+        FakeAirportRepository airportRepository = FakeAirportRepository.of();
+        airportRepository.saveAll(List.of(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH));
+        return airportRepository;
     }
 
     @Bean
     public AirportService airportService(AirportRepository airportRepository) {
-        return new AirportService(airportRepository);
+        return AirportService.of(airportRepository);
     }
 
 }

@@ -5,17 +5,17 @@ import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "of")
 @FieldDefaults(makeFinal = true)
 public class AirportService {
 
     private AirportRepository airportRepository;
 
-    public List<Airport> allAirports() {
+    public List<Airport> all() {
         return airportRepository.findAll();
     }
 
-    public List<Airport> openAirports() {
+    public List<Airport> open() {
         return airportRepository.findAllOpen();
     }
 

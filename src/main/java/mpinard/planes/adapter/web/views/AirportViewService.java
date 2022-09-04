@@ -16,19 +16,19 @@ public class AirportViewService {
 
     private AirportService airportService;
 
-    public List<AirportView> allAirports() {
+    public List<AirportView> all() {
         return OpenQuery.ALL.apply(airportService);
     }
 
-    public List<AirportView> openAirports() {
+    public List<AirportView> open() {
         return OpenQuery.OPEN.apply(airportService);
     }
 
     @AllArgsConstructor
     @FieldDefaults(makeFinal = true)
     public enum OpenQuery {
-      ALL(AirportViewService::allAirports, AirportService::allAirports),
-      OPEN(AirportViewService::openAirports, AirportService::openAirports);
+      ALL(AirportViewService::all, AirportService::all),
+      OPEN(AirportViewService::open, AirportService::open);
 
       private Function<AirportViewService, List<AirportView>> viewQuery;
       private Function<AirportService, List<Airport>> serviceQuery;
