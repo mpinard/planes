@@ -7,7 +7,13 @@
 </head>
 <body>
 <h1>Airports</h1>
-<p><a href="/">Planes</a></p>
+<br/>
+<p>
+<a href="/">Planes</a>
+
+<a href="/airports">Airports</a>
+</p>
+<br/>
 <table>
   <thead>
   <tr>
@@ -30,7 +36,13 @@
   </tr>
   </tbody>
 </table>
-<p></p>
+<br/>
+<p>
+  <a href="/airports?open=OPEN">Open</a>
+  
+  <a href="/airports?open=ALL">All</a>
+</p>
+<br/>
 <div th:replace="../fragments/frame.html :: footer"></div>
 </body>
 </html>
