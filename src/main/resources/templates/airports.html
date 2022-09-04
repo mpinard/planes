@@ -9,9 +9,9 @@
 <h1>Airports</h1>
 <br/>
 <p>
-<a href="/">Planes</a>
+<a href="/" class="clickable">Planes</a>
 
-<a href="/airports">Airports</a>
+<a href="/airports" class="selected">Airports</a>
 </p>
 <br/>
 <table>
@@ -38,9 +38,9 @@
 </table>
 <br/>
 <p>
-  <a href="/airports?open=OPEN">Open</a>
+  <a href="/airports?open=OPEN" class="base" th:classappend="${open ? 'selected' : 'clickable'}">Open</a>
   
-  <a href="/airports?open=ALL">All</a>
+  <a href="/airports?open=ALL" class="base" th:classappend="${open ? 'clickable' : 'selected'}">All</a>
 </p>
 <br/>
 <div th:replace="../fragments/frame.html :: footer"></div>

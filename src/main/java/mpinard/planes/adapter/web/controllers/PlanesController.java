@@ -36,6 +36,7 @@ public class PlanesController {
   @GetMapping("/airports")
   public String showAirports(@RequestParam(name = "open", defaultValue = "OPEN") AirportViewService.OpenQuery open, Model model) {
     model.addAttribute("airports", open.apply(airportViewService));
+    model.addAttribute("open", open == AirportViewService.OpenQuery.OPEN);
 
     model.addAttribute("coins", "30,000");
     model.addAttribute("level", "1");

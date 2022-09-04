@@ -70,8 +70,8 @@ td:nth-of-type(6) {
 }
 
 a {
-  background-color: #770087;
-  box-shadow: 0 5px 0 #aa00aa;
+  background-color: #aa00aa;
+  box-shadow: 0 5px 0 #770087;
   color: white;
   font-weight: bold;
   padding: 1em 1.5em;
@@ -88,4 +88,22 @@ a:hover {
 a:active {
   box-shadow: none;
   top: 5px;
+}
+
+a.selected {
+  background-color: #aa00aa;
+  box-shadow: 0 5px 0 #770087;
+}
+
+a.selected:hover {
+  background-color: #aa00aa;
+}
+
+a.clickable {
+  background-color: #770087;
+  box-shadow: 0 0 0 #770087;
+}
+
+a.clickable:hover {
+  background-color: #aa00aa;
 }
