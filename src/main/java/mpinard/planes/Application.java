@@ -1,6 +1,9 @@
 package mpinard.planes;
 
+import mpinard.planes.domain.airport.Airport;
+import mpinard.planes.domain.airport.AirportRepository;
 import mpinard.planes.domain.airport.AirportService;
+import mpinard.planes.domain.airport.FakeAirportRepository;
 import mpinard.planes.domain.common.GameClock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,13 +17,18 @@ public class Application {
     }
 
     @Bean
-    public GameClock getGameClock() {
+    public GameClock gameClock() {
         return GameClock.of();
     }
 
     @Bean
-    public AirportService getAirportService() {
-        return new AirportService();
+    public AirportRepository airportRepository() {
+        return new FakeAirportRepository();
+    }
+
+    @Bean
+    public AirportService airportService(AirportRepository airportRepository) {
+        return new AirportService(airportRepository);
     }
 
 }

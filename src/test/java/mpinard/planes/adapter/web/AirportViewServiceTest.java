@@ -2,7 +2,9 @@ package mpinard.planes.adapter.web;
 
 import lombok.experimental.FieldDefaults;
 import mpinard.planes.adapter.web.views.AirportViewService;
+import mpinard.planes.domain.airport.AirportRepository;
 import mpinard.planes.domain.airport.AirportService;
+import mpinard.planes.domain.airport.FakeAirportRepository;
 import org.junit.jupiter.api.Test;
 
 import static mpinard.planes.adapter.web.AirportViewTestData.BARCELONA;
@@ -14,7 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @FieldDefaults(makeFinal = true)
 public class AirportViewServiceTest {
 
-    private AirportService airportService = new AirportService();
+    private AirportRepository airportRepository = new FakeAirportRepository();
+    private AirportService airportService = new AirportService(airportRepository);
     private AirportViewService airportViewService = new AirportViewService(airportService);
 
     @Test
