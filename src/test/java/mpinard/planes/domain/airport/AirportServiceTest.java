@@ -8,9 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 @FieldDefaults(makeFinal = true)
 public class AirportServiceTest {
-
-    private AirportRepository airportRepository = new FakeAirportRepository();
-    private AirportService airportService = new AirportService(airportRepository);
+    private AirportService airportService = new AirportServiceBuilder().build();
 
     @Test
     public void When_InitialState_AllAirports_Expect_AllAirports() {

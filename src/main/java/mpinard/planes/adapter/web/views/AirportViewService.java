@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -39,7 +38,7 @@ public class AirportViewService {
       }
 
       private List<AirportView> apply(AirportService airportService) {
-        return serviceQuery.apply(airportService).stream().map(AirportView::of).collect(Collectors.toUnmodifiableList());
+        return serviceQuery.apply(airportService).stream().map(AirportView::of).toList();
       }
 
     }
