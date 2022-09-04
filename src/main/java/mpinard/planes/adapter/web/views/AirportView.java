@@ -14,6 +14,7 @@ public class AirportView {
     private String continent;
     private String airportClass;
     private String population;
+    private boolean open;
 
     public static AirportView of(Airport airport) {
         return AirportView.builder()
@@ -22,6 +23,7 @@ public class AirportView {
             .continent(airport.getContinent())
             .airportClass(airport.getAirportClass().toString())
             .population(formatWithCommas(airport.getPopulation()))
+            .open(airport.isOpen())
             .build();
     }
 }

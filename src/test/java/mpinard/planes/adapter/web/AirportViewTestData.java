@@ -17,6 +17,7 @@ public class AirportViewTestData {
         .continent("Europe")
         .airportClass("2")
         .population("3,769,495")
+        .open(true)
         .build();
     public static final AirportView BRUSSELS = AirportView.builder()
         .name("Brussels")
@@ -24,6 +25,7 @@ public class AirportViewTestData {
         .continent("Europe")
         .airportClass("1")
         .population("1,222,637")
+        .open(true)
         .build();
     public static final AirportView MUNICH = AirportView.builder()
         .name("Munich")
@@ -31,6 +33,7 @@ public class AirportViewTestData {
         .continent("Europe")
         .airportClass("1")
         .population("1,488,222")
+        .open(true)
         .build();
 
 }
