@@ -1,4 +1,4 @@
-package mpinard.planes.domain.event;
+package mpinard.planes.domain.eventv1;
 
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -14,14 +14,14 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true)
 @Slf4j
-public class FakeDomainEventPublisher implements DomainEventPublisher {
-    private DomainEventRepository domainEventRepository;
+public class FakeDomainEventPublisherV1 implements DomainEventPublisherV1 {
+    private DomainEventRepositoryV1 domainEventRepositoryV1;
 
-    private ConcurrentMap<DomainEventType, List<DomainEventSubscription>> subscriptions = new ConcurrentHashMap<>();
+    private ConcurrentMap<DomainEventTypeV1, List<DomainEventSubscriptionV1>> subscriptions = new ConcurrentHashMap<>();
 
     @Override
-    public DomainEventSubscriptionId subscribe(DomainEventType eventType, Consumer<? super DomainEvent<?>> eventConsumer) {
-        DomainEventSubscription subscription = DomainEventSubscription.of(DomainEventSubscriptionId.of(), eventConsumer);
+    public DomainEventSubscriptionId subscribe(DomainEventTypeV1 eventType, Consumer<? super DomainEventV1<?>> eventConsumer) {
+        DomainEventSubscriptionV1 subscription = DomainEventSubscriptionV1.of(DomainEventSubscriptionId.of(), eventConsumer);
 
         // TODO: Extract list helper
         subscriptions.merge(eventType, List.of(subscription), (key, oldValue) -> Stream.concat(oldValue.stream(), Stream.of(subscription)).toList());
@@ -30,17 +30,17 @@ public class FakeDomainEventPublisher implements DomainEventPublisher {
     }
 
     @Override
-    public <E extends DomainEvent<E>> DomainEvent<E> publish(DomainEvent<E> event) {
-        return domainEventRepository.save(event);
+    public <E extends DomainEventV1<E>> DomainEventV1<E> publish(DomainEventV1<E> event) {
+        return domainEventRepositoryV1.save(event);
     }
 
     public void startNotifications() {
-        domainEventRepository.streamEvents()
+        domainEventRepositoryV1.streamEvents()
             .map(this::handleEvent)
             .blockLast();
     }
 
-    private DomainEvent<?> handleEvent(DomainEvent<?> event) {
+    private DomainEventV1<?> handleEvent(DomainEventV1<?> event) {
         Optional.ofNullable(subscriptions.get(event.getType()))
             .ifPresent(theSubscriptions -> theSubscriptions.forEach(subscription -> subscription.notify(event)));
 

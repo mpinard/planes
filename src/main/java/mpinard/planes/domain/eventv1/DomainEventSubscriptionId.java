@@ -1,4 +1,4 @@
-package mpinard.planes.domain.event;
+package mpinard.planes.domain.eventv1;
 
 import java.util.UUID;
 
