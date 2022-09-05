@@ -3,24 +3,25 @@ package mpinard.planes.domain.airport.events;
 import lombok.Value;
 import lombok.With;
 import mpinard.planes.domain.event.DomainEvent;
-import mpinard.planes.domain.event.DomainEventId;
-import mpinard.planes.domain.event.DomainEventType;
+import mpinard.planes.domain.event.EventId;
+import mpinard.planes.domain.event.EventType;
+
+import java.time.OffsetDateTime;
 
 @Value(staticConstructor = "of")
 public class AirportOpened implements DomainEvent<AirportOpened> {
-    private DomainEventId id;
-    private AirportId airportId;
+    EventId id;
+    AirportId airportId;
+    OffsetDateTime timestamp;
     @With
-    private Long sequenceNumber;
-    @With
-    private boolean replay;
+    Long sequenceNumber;
 
-    public static AirportOpened of(AirportId airportId) {
-        return AirportOpened.of(DomainEventId.of(), airportId, null, false);
+    public static AirportOpened of(AirportId airportId, OffsetDateTime timestamp) {
+        return AirportOpened.of(EventId.of(), airportId, timestamp, null);
     }
 
     @Override
-    public DomainEventType getType() {
+    public EventType getType() {
         return AirportEvent.AIRPORT_OPENED;
     }
 }

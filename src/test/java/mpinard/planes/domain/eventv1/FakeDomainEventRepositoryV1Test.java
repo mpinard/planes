@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FakeDomainEventV1RepositoryTest {
+public class FakeDomainEventRepositoryV1Test {
 
     private final FakeDomainEventRepositoryV1 domainEventRepository = new FakeDomainEventRepositoryV1();
 

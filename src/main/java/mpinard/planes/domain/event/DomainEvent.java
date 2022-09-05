@@ -1,8 +1,6 @@
 package mpinard.planes.domain.event;
 
-public interface DomainEvent<E> {
-    DomainEventId getId();
-    DomainEventType getType();
+public interface DomainEvent<E> extends Event {
 
     default int getVersion() {
         return 1;
@@ -10,10 +8,5 @@ public interface DomainEvent<E> {
 
     Long getSequenceNumber();
 
-    boolean isReplay();
-
     E withSequenceNumber(Long sequenceNumber);
-
-    E withReplay(boolean replay);
-
 }

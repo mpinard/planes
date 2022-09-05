@@ -1,5 +1,5 @@
 package mpinard.planes.domain.event;
 
-public interface DomainEventType {
+public interface EventType {
     String name();
 }
