@@ -4,7 +4,7 @@ import reactor.core.publisher.Flux;
 
 public interface DomainEventRepository {
 
-    void replayEvents();
+    void replaySavedEvents();
 
     <E extends DomainEvent<E>> DomainEvent<E> save(DomainEvent<E> event);
 

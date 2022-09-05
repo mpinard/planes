@@ -43,7 +43,7 @@ public class FakeDomainEventRepositoryTest {
         AirportOpened firstEvent = AirportOpened.of(AirportId.of());
         AirportClosed secondEvent = AirportClosed.of(AirportId.of());
         domainEventRepository.loadEvents(List.of(replayedEvent));
-        domainEventRepository.replayEvents();
+        domainEventRepository.replaySavedEvents();
         domainEventRepository.save(firstEvent);
         domainEventRepository.save(secondEvent);
         domainEventRepository.close();
@@ -55,6 +55,28 @@ public class FakeDomainEventRepositoryTest {
                 firstEvent.withSequenceNumber(2L),
                 secondEvent.withSequenceNumber(3L));
     }
+
+    @Test
+    public void When_ReplayMutipleEvent_Expect_EventReplayedThenSavedEventsStreamed() {
+        AirportOpened replayedEvent1 = AirportOpened.of(AirportId.of());
+        AirportClosed replayedEvent2 = AirportClosed.of(AirportId.of());
+        AirportOpened firstEvent = AirportOpened.of(AirportId.of());
+        AirportClosed secondEvent = AirportClosed.of(AirportId.of());
+        domainEventRepository.loadEvents(List.of(replayedEvent1, replayedEvent2));
+        domainEventRepository.replaySavedEvents();
+        domainEventRepository.save(firstEvent);
+        domainEventRepository.save(secondEvent);
+        domainEventRepository.close();
+
+        assertThat(domainEventRepository.streamEvents()
+            .collectList()
+            .block()).containsExactly(
+            replayedEvent1.withSequenceNumber(1L).withReplay(true),
+            replayedEvent2.withSequenceNumber(2L).withReplay(true),
+            firstEvent.withSequenceNumber(3L),
+            secondEvent.withSequenceNumber(4L));
+    }
+
 
 
 

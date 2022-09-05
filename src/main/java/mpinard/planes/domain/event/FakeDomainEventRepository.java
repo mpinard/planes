@@ -11,14 +11,14 @@ import java.util.concurrent.locks.ReentrantLock;
 
 @NoArgsConstructor
 public class FakeDomainEventRepository implements DomainEventRepository {
-    private final List<DomainEvent<?>> domainEvents = new LinkedList<>();
+    private final List<DomainEvent<?>> savedEvents = new LinkedList<>();
     private final Sinks.Many<DomainEvent<?>> sink = Sinks.many().unicast().onBackpressureBuffer();
     private final Lock lock = new ReentrantLock();
     private long nextSequenceNumber = 1L;
 
     @Override
-    public void replayEvents() {
-        domainEvents.stream()
+    public void replaySavedEvents() {
+        savedEvents.stream()
             .map(event -> (DomainEvent<?>) event.withReplay(true))
             .forEach(this::notify);
     }
@@ -37,8 +37,8 @@ public class FakeDomainEventRepository implements DomainEventRepository {
     }
 
     @SuppressWarnings("unchecked")
-    public void loadEvents(List<DomainEvent<?>> loadedEvents) {
-        loadedEvents.forEach(event -> doSave(event.getClass().cast(event)));
+    public void loadEvents(List<DomainEvent<?>> eventsToLoad) {
+        eventsToLoad.forEach(event -> doSave(event.getClass().cast(event)));
     }
 
     public void close() {
@@ -51,7 +51,7 @@ public class FakeDomainEventRepository implements DomainEventRepository {
         lock.lock();
         try {
             savedEvent = event.withSequenceNumber(nextSequenceNumber++);
-            domainEvents.add(savedEvent);
+            savedEvents.add(savedEvent);
         } finally {
             lock.unlock();
         }
