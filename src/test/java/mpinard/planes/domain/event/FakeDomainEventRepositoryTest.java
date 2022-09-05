@@ -57,7 +57,7 @@ public class FakeDomainEventRepositoryTest {
     }
 
     @Test
-    public void When_ReplayMutipleEvent_Expect_EventReplayedThenSavedEventsStreamed() {
+    public void When_ReplayMultipleEvents_Expect_EventsReplayedThenSavedEventsStreamed() {
         AirportOpened replayedEvent1 = AirportOpened.of(AirportId.of());
         AirportClosed replayedEvent2 = AirportClosed.of(AirportId.of());
         AirportOpened firstEvent = AirportOpened.of(AirportId.of());

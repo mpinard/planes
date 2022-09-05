@@ -42,13 +42,7 @@ public class FakeDomainEventPublisher implements DomainEventPublisher {
 
     private DomainEvent<?> handleEvent(DomainEvent<?> event) {
         Optional.ofNullable(subscriptions.get(event.getType()))
-            .ifPresent(theSubscriptions -> theSubscriptions.forEach(subcription -> {
-                try {
-                    subcription.notify(event);
-                } catch (RuntimeException e) {
-                    log.error("Error processing event {}", event, e);
-                }
-            }));
+            .ifPresent(theSubscriptions -> theSubscriptions.forEach(subscription -> subscription.notify(event)));
 
         return event;
     }

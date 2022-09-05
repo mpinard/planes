@@ -2,11 +2,14 @@ package mpinard.planes.domain.event;
 
 import lombok.Value;
 import lombok.With;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.function.Consumer;
 
 @Value(staticConstructor = "of")
+@Slf4j
 public class DomainEventSubscription {
+
     private DomainEventSubscriptionId id;
     private Consumer<? super DomainEvent<?>> eventConsumer;
     @With
@@ -17,6 +20,10 @@ public class DomainEventSubscription {
     }
 
     public void notify(DomainEvent<?> event) {
-        eventConsumer.accept(event);
+        try {
+            eventConsumer.accept(event);
+        } catch (RuntimeException e) {
+            log.error("Error processing event {}", event, e);
+        }
     }
 }
