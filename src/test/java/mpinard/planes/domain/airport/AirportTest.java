@@ -1,5 +1,6 @@
 package mpinard.planes.domain.airport;
 
+import mpinard.planes.domain.airport.events.AirportId;
 import mpinard.planes.domain.common.Coordinates;
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AirportTest {
 
     private static final Airport BERLIN_AIRPORT = Airport.of(
+        AirportId.of(),
         "Berlin",
         "Germany",
         "Europe",

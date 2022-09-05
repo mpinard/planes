@@ -9,51 +9,51 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class FakeAirportRepositoryTest {
 
-    private final FakeAirportRepository fakeAirportRepository = FakeAirportRepository.of();
+    private final FakeAirportRepository airportRepository = FakeAirportRepository.of();
 
     @Test
     public void Whsen_FindAll_EmptyRepository_Expect_EmptyResult() {
-        assertThat(fakeAirportRepository.findAll()).isEmpty();
+        assertThat(airportRepository.findAll()).isEmpty();
     }
 
     @Test
     public void When_FindAll_DefaultAirports_Expect_AllAirports() {
         saveDefaultAirports();
-        assertThat(fakeAirportRepository.findAll()).containsExactly(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH);
+        assertThat(airportRepository.findAll()).containsExactly(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH);
     }
 
     @Test
     public void When_UpdateFindAllResult_Expect_Exception() {
-        assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> fakeAirportRepository.findAll().add(Airports.BERLIN));
+        assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> airportRepository.findAll().add(Airports.BERLIN));
     }
 
     @Test
     public void When_FindAllOpen_EmptyRepository_Expect_EmptyResult() {
-        assertThat(fakeAirportRepository.findAllOpen()).isEmpty();
+        assertThat(airportRepository.findAllOpen()).isEmpty();
     }
 
     @Test
     public void When_FindAllOpen_DefaultAirports_Expect_OpenAirports() {
         saveDefaultAirports();
-        assertThat(fakeAirportRepository.findAllOpen()).containsExactly(Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH);
+        assertThat(airportRepository.findAllOpen()).containsExactly(Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH);
     }
 
     @Test
     public void When_UpdateFindAllOpenResult_Expect_Exception() {
-        assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> fakeAirportRepository.findAllOpen().add(Airports.BERLIN));
+        assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> airportRepository.findAllOpen().add(Airports.BERLIN));
     }
 
     @Test
     public void When_SaveAll_Expect_AllAirportArgumentsSaved() {
-        assertThat(fakeAirportRepository.findAll()).isEmpty();
-        assertThat(fakeAirportRepository.saveAll(List.of(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH)))
+        assertThat(airportRepository.findAll()).isEmpty();
+        assertThat(airportRepository.saveAll(List.of(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH)))
             .containsExactly(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH);
-        assertThat(fakeAirportRepository.findAll())
+        assertThat(airportRepository.findAll())
             .containsExactly(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH);
     }
 
     private void saveDefaultAirports() {
-        fakeAirportRepository.saveAll(List.of(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH));
+        airportRepository.saveAll(List.of(Airports.BARCELONA, Airports.BERLIN, Airports.BRUSSELS, Airports.MUNICH));
     }
 
 
