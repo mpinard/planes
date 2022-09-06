@@ -57,7 +57,6 @@ public class FakeDomainEventRepositoryV1 implements DomainEventRepositoryV1 {
         }
 
         return savedEvent;
-
     }
 
     private void notify(DomainEventV1<?> event) {
