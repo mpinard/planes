@@ -21,7 +21,10 @@ public class FakeDomainEventRepositoryTest {
     @Test
     public void When_SaveSingleEvent_Expect_EventsAfterEventIdToBeEmpty() {
         AirportOpened event = AirportOpened.of(AirportId.of(), TIME_ONE);
-        assertThat(domainEventRepository.save(event)).hasValue(event.withSequenceNumber(1L));
+        AirportOpened savedEvent = event.withSequenceNumber(1L);
+
+        assertThat(domainEventRepository.save(event)).hasValue(savedEvent);
+        assertThat(domainEventRepository.eventsAfter(null).collectList().block()).containsExactly(savedEvent);
         assertThat(domainEventRepository.eventsAfter(event.getId()).collectList().block()).isEmpty();
     }
 
