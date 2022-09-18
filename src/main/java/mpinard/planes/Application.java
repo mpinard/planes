@@ -3,7 +3,7 @@ package mpinard.planes;
 import mpinard.planes.domain.airport.AirportRepository;
 import mpinard.planes.domain.airport.AirportService;
 import mpinard.planes.domain.airport.Airports;
-import mpinard.planes.adapter.mockrepo.FakeAirportRepository;
+import mpinard.planes.adapter.mockrepo.airport.FakeAirportRepository;
 import mpinard.planes.domain.common.GameClock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

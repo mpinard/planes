@@ -1,4 +1,4 @@
-package mpinard.planes.adapter.mockrepo;
+package mpinard.planes.adapter.mockrepo.airport;
 
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;

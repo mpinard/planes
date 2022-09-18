@@ -1,7 +1,7 @@
 package mpinard.planes.domain.airport;
 
 import lombok.Getter;
-import mpinard.planes.adapter.mockrepo.FakeAirportRepository;
+import mpinard.planes.adapter.mockrepo.airport.FakeAirportRepository;
 
 import java.util.List;
 
