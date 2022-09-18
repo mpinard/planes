@@ -14,7 +14,7 @@ public class FakeAirportRepositoryTest {
     private final AirportRepository airportRepository = FakeAirportRepository.of();
 
     @Test
-    public void Whsen_FindAll_EmptyRepository_Expect_EmptyResult() {
+    public void When_FindAll_EmptyRepository_Expect_EmptyResult() {
         assertThat(airportRepository.findAll()).isEmpty();
     }
 
