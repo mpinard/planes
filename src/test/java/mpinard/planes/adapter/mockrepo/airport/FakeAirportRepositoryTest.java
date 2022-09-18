@@ -1,5 +1,6 @@
 package mpinard.planes.adapter.mockrepo.airport;
 
+import mpinard.planes.domain.airport.AirportRepository;
 import mpinard.planes.domain.airport.Airports;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class FakeAirportRepositoryTest {
 
-    private final FakeAirportRepository airportRepository = FakeAirportRepository.of();
+    private final AirportRepository airportRepository = FakeAirportRepository.of();
 
     @Test
     public void Whsen_FindAll_EmptyRepository_Expect_EmptyResult() {
