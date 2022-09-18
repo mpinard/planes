@@ -1,11 +1,7 @@
 package mpinard.planes.domain.plane;
 
-import java.util.List;
+import mpinard.planes.domain.common.Repository;
 
-public interface PlaneRepository {
-
-    List<Plane> findAll();
-
-    List<Plane> saveAll(Iterable<Plane> planeTypes);
+public interface PlaneRepository extends Repository<Plane> {
 
 }

@@ -1,13 +1,11 @@
 package mpinard.planes.domain.airport;
 
+import mpinard.planes.domain.common.Repository;
+
 import java.util.List;
 
-public interface AirportRepository {
-
-    List<Airport> findAll();
+public interface AirportRepository extends Repository<Airport> {
 
     List<Airport> findAllOpen();
-
-    List<Airport> saveAll(Iterable<Airport> airports);
 
 }
