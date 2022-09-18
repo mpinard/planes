@@ -3,20 +3,19 @@ package mpinard.planes.domain.airport;
 import lombok.AccessLevel;
 import lombok.Value;
 import lombok.With;
-import mpinard.planes.domain.airport.events.AirportId;
 import mpinard.planes.domain.common.Coordinates;
 
 @Value(staticConstructor = "of")
 public class Airport {
-    private AirportId airportId;
-    private String name;
-    private String country;
-    private String continent;
-    private AirportClass airportClass;
-    private int population;
-    private Coordinates coordinates;
+    AirportId airportId;
+    String name;
+    String country;
+    String continent;
+    AirportClass airportClass;
+    int population;
+    Coordinates coordinates;
     @With(value = AccessLevel.PRIVATE)
-    private boolean open;
+    boolean open;
 
     public Airport purchase() {
         return this.withOpen(true);

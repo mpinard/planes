@@ -1,7 +1,6 @@
 package mpinard.planes.domain.airport;
 
 import lombok.experimental.UtilityClass;
-import mpinard.planes.domain.airport.events.AirportId;
 import mpinard.planes.domain.common.Coordinates;
 
 @UtilityClass

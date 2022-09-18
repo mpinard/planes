@@ -1,5 +1,6 @@
-package mpinard.planes.domain.airport;
+package mpinard.planes.adapter.mockrepo;
 
+import mpinard.planes.domain.airport.Airports;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

@@ -1,6 +1,5 @@
 package mpinard.planes.domain.airport;
 
-import mpinard.planes.domain.airport.events.AirportId;
 import mpinard.planes.domain.common.Coordinates;
 import org.junit.jupiter.api.Test;
 

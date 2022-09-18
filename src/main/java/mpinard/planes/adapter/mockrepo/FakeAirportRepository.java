@@ -1,7 +1,9 @@
-package mpinard.planes.domain.airport;
+package mpinard.planes.adapter.mockrepo;
 
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import mpinard.planes.domain.airport.Airport;
+import mpinard.planes.domain.airport.AirportRepository;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
