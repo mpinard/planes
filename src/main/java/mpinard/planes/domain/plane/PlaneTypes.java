@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @UtilityClass
-public class PlanesTypes {
+public class PlaneTypes {
     public static final PlaneType BEARCLAW_P = PlaneType.of(
         PlaneTypeId.of(), "Bearclaw-P", 1, 0, 126, 500, new BigDecimal("1.0"), AirportClass.ONE, 1, 3);
     public static final PlaneType BEARCLAW_C = PlaneType.of(
@@ -29,14 +29,14 @@ public class PlanesTypes {
     public static final PlaneType WALLABY_M = PlaneType.of(
         PlaneTypeId.of(), "Wallaby-M", 1, 1, 143, 700, new BigDecimal("2.2"), AirportClass.ONE, 1, 3);
     public static List<PlaneType> ALL = List.of(
-        PlanesTypes.BEARCLAW_P,
-        PlanesTypes.BEARCLAW_C,
-        PlanesTypes.GRIFFON_P,
-        PlanesTypes.GRIFFON_C,
-        PlanesTypes.NAVIGATOR_P,
-        PlanesTypes.NAVIGATOR_C,
-        PlanesTypes.NAVIGATOR_M,
-        PlanesTypes.WALLABY_P,
-        PlanesTypes.WALLABY_C,
-        PlanesTypes.WALLABY_M);
+        PlaneTypes.BEARCLAW_P,
+        PlaneTypes.BEARCLAW_C,
+        PlaneTypes.GRIFFON_P,
+        PlaneTypes.GRIFFON_C,
+        PlaneTypes.NAVIGATOR_P,
+        PlaneTypes.NAVIGATOR_C,
+        PlaneTypes.NAVIGATOR_M,
+        PlaneTypes.WALLABY_P,
+        PlaneTypes.WALLABY_C,
+        PlaneTypes.WALLABY_M);
 }

@@ -1,6 +1,6 @@
 package mpinard.planes.adapter.mockrepo.plane;
 
-import mpinard.planes.domain.plane.PlanesTypes;
+import mpinard.planes.domain.plane.PlaneTypes;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,23 +18,23 @@ public class FakePlaneTypeRepositoryTest {
     @Test
     public void When_FindAll_DefaultPlaneTypes_Expect_AllPlaneTypes() {
         saveDefaultPlaneTypes();
-        assertThat(planeTypeRepository.findAll()).containsExactlyElementsOf(PlanesTypes.ALL);
+        assertThat(planeTypeRepository.findAll()).containsExactlyElementsOf(PlaneTypes.ALL);
     }
 
     @Test
     public void When_UpdateFindAllResult_Expect_Exception() {
-        assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> planeTypeRepository.findAll().add(PlanesTypes.BEARCLAW_C));
+        assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> planeTypeRepository.findAll().add(PlaneTypes.BEARCLAW_C));
     }
 
     @Test
     public void When_SaveAll_Expect_AllAirportArgumentsSaved() {
         assertThat(planeTypeRepository.findAll()).isEmpty();
-        assertThat(planeTypeRepository.saveAll(PlanesTypes.ALL)).containsExactlyElementsOf(PlanesTypes.ALL);
-        assertThat(planeTypeRepository.findAll()).containsExactlyElementsOf(PlanesTypes.ALL);
+        assertThat(planeTypeRepository.saveAll(PlaneTypes.ALL)).containsExactlyElementsOf(PlaneTypes.ALL);
+        assertThat(planeTypeRepository.findAll()).containsExactlyElementsOf(PlaneTypes.ALL);
     }
 
     private void saveDefaultPlaneTypes() {
-        planeTypeRepository.saveAll(PlanesTypes.ALL);
+        planeTypeRepository.saveAll(PlaneTypes.ALL);
     }
 
 

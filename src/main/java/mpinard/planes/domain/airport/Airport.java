@@ -7,7 +7,7 @@ import mpinard.planes.domain.common.Coordinates;
 
 @Value(staticConstructor = "of")
 public class Airport {
-    AirportId airportId;
+    AirportId id;
     String name;
     String country;
     String continent;
