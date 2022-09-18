@@ -2,8 +2,8 @@ package mpinard.planes.adapter.web.controllers;
 
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import mpinard.planes.adapter.web.views.AirportViewService;
-import mpinard.planes.adapter.web.views.PlaneView;
+import mpinard.planes.adapter.web.views.airport.AirportViewService;
+import mpinard.planes.adapter.web.views.plane.PlaneView;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

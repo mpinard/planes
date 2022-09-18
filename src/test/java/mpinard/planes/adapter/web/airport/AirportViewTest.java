@@ -1,6 +1,6 @@
-package mpinard.planes.adapter.web;
+package mpinard.planes.adapter.web.airport;
 
-import mpinard.planes.adapter.web.views.AirportView;
+import mpinard.planes.adapter.web.views.airport.AirportView;
 import mpinard.planes.domain.airport.Airports;
 import org.junit.jupiter.api.Test;
 

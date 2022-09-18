@@ -1,4 +1,4 @@
-package mpinard.planes.adapter.web.views;
+package mpinard.planes.adapter.web.views.airport;
 
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;

@@ -1,4 +1,4 @@
-package mpinard.planes.adapter.web.views;
+package mpinard.planes.adapter.web.views.airport;
 
 import lombok.Builder;
 import lombok.Value;
@@ -9,12 +9,12 @@ import static mpinard.planes.adapter.web.formatters.FormatNumbers.formatWithComm
 @Value
 @Builder
 public class AirportView {
-    private String name;
-    private String country;
-    private String continent;
-    private String airportClass;
-    private String population;
-    private boolean open;
+    String name;
+    String country;
+    String continent;
+    String airportClass;
+    String population;
+    boolean open;
 
     public static AirportView of(Airport airport) {
         return AirportView.builder()

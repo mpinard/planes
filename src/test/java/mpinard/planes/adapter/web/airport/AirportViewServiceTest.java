@@ -1,15 +1,15 @@
-package mpinard.planes.adapter.web;
+package mpinard.planes.adapter.web.airport;
 
 import lombok.experimental.FieldDefaults;
-import mpinard.planes.adapter.web.views.AirportViewService;
+import mpinard.planes.adapter.web.views.airport.AirportViewService;
 import mpinard.planes.domain.airport.AirportService;
 import mpinard.planes.domain.airport.AirportServiceBuilder;
 import org.junit.jupiter.api.Test;
 
-import static mpinard.planes.adapter.web.AirportViewTestData.BARCELONA;
-import static mpinard.planes.adapter.web.AirportViewTestData.BERLIN;
-import static mpinard.planes.adapter.web.AirportViewTestData.BRUSSELS;
-import static mpinard.planes.adapter.web.AirportViewTestData.MUNICH;
+import static mpinard.planes.adapter.web.airport.AirportViewTestData.BARCELONA;
+import static mpinard.planes.adapter.web.airport.AirportViewTestData.BERLIN;
+import static mpinard.planes.adapter.web.airport.AirportViewTestData.BRUSSELS;
+import static mpinard.planes.adapter.web.airport.AirportViewTestData.MUNICH;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @FieldDefaults(makeFinal = true)
