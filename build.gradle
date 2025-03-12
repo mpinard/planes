@@ -26,6 +26,7 @@ java {
 configurations {
     compile.exclude module: "slf4j-log4j12"
     compile.exclude module: "log4j"
+    mockitoAgent
 }
 
 repositories {
@@ -37,6 +38,10 @@ test {
 }
 
 dependencies {
+    mockitoAgent(testImplementation("org.mockito:mockito-core:${mockitoVersion}")) {
+        transitive = false
+    }
+
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
     annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 
@@ -67,3 +72,10 @@ tasks.withType(Test) {
 tasks.withType(JavaExec) {
     jvmArgs += '--enable-preview'
 }
+
+tasks {
+    test {
+        jvmArgs += "-javaagent:${configurations.mockitoAgent.asPath}"
+    }
+}
+

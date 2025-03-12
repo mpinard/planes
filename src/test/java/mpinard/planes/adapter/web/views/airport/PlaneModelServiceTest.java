@@ -1,4 +1,4 @@
-package mpinard.planes.adapter.web.airport;
+package mpinard.planes.adapter.web.views.airport;
 
 import mpinard.planes.adapter.web.views.plane.PlaneModel;
 import mpinard.planes.adapter.web.views.plane.PlaneModelService;
