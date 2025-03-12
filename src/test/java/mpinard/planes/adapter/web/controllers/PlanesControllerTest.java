@@ -61,4 +61,16 @@ class PlanesControllerTest {
         verify(model).addAttribute("level", "1");
     }
 
+    @Test
+    void When_ShowAirports_All_Expect_OpenAirports() {
+        when(airportViewService.all()).thenReturn(List.of(airportView));
+
+        assertThat(planesController.showAirports(AirportViewService.OpenQuery.ALL, model)).isEqualTo("airports");
+
+        verify(model).addAttribute("airports", List.of(airportView));
+        verify(model).addAttribute("open", false);
+        verify(model).addAttribute("coins", "30,000");
+        verify(model).addAttribute("level", "1");
+    }
+
 }
