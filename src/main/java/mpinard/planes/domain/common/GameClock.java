@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Value
 public class GameClock {
     @Getter(value = AccessLevel.PRIVATE)
-    private AtomicInteger internalTime;
+    AtomicInteger internalTime;
 
     public static GameClock of() {
         return of(0);

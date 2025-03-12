@@ -4,6 +4,6 @@ import lombok.Value;
 
 @Value(staticConstructor = "of")
 public class Coordinates {
-    private int latitude;
-    private int longitude;
+    int latitude;
+    int longitude;
 }
