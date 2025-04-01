@@ -2,8 +2,6 @@ package mpinard.planes.domain.common;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.Clock;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 

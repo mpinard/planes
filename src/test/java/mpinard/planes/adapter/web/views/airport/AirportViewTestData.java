@@ -1,7 +1,5 @@
 package mpinard.planes.adapter.web.views.airport;
 
-import mpinard.planes.adapter.web.views.airport.AirportView;
-
 public class AirportViewTestData {
 
     public static final AirportView BARCELONA = AirportView.builder()
