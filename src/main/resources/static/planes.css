@@ -70,8 +70,8 @@ td:nth-of-type(6) {
 }
 
 a {
-  background-color: #aa00aa;
-  box-shadow: 0 5px 0 #770087;
+  background-color: #00aa4d;
+  box-shadow: 0 5px 0 #008753;
   color: white;
   font-weight: bold;
   padding: 1em 1.5em;
@@ -81,7 +81,7 @@ a {
 }
 
 a:hover {
-  background-color: #B300B3;
+  background-color: #32ab4a;
   cursor: pointer;
 }
 
@@ -91,19 +91,19 @@ a:active {
 }
 
 a.selected {
-  background-color: #aa00aa;
-  box-shadow: 0 5px 0 #770087;
+  background-color: #00aa30;
+  box-shadow: 0 5px 0 #008726;
 }
 
 a.selected:hover {
-  background-color: #aa00aa;
+  background-color: #00aa41;
 }
 
 a.clickable {
-  background-color: #770087;
-  box-shadow: 0 0 0 #770087;
+  background-color: #008748;
+  box-shadow: 0 0 0 #008755;
 }
 
 a.clickable:hover {
-  background-color: #aa00aa;
+  background-color: #00aa63;
 }
