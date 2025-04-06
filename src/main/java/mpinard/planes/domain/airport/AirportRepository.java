@@ -1,8 +1,8 @@
 package mpinard.planes.domain.airport;
 
-import mpinard.planes.domain.common.Repository;
-
 import java.util.List;
+
+import mpinard.planes.domain.common.Repository;
 
 public interface AirportRepository extends Repository<Airport> {
 
