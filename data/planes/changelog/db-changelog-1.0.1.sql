@@ -1,19 +1,18 @@
 -- liquibase formatted sql
-
 -- changeset mpinard:db-changelog-1.0.1.sql logicalFilePath:file_1.0.1
-CREATE TABLE `airport`
-(
+CREATE TABLE `airport` (
     `id`            VARCHAR(36) NOT NULL PRIMARY KEY,
     `name`          VARCHAR(36) NOT NULL,
     `country`       VARCHAR(36) NOT NULL,
     `continent`     VARCHAR(36) NOT NULL,
-    `airport_class` TINYINT NOT NULL,
-    `population`    INT NOT NULL,
-    `latitude`      INT NOT NULL,
-    `longitude`     INT NOT NULL,
-    `open`          TINYINT NOT NULL DEFAULT 0,
+    `airport_class` TINYINT     NOT NULL,
+    `population`    INT         NOT NULL,
+    `latitude`      INT         NOT NULL,
+    `longitude`     INT         NOT NULL,
+    `open`          TINYINT     NOT NULL DEFAULT 0,
+    `version`       INT         NOT NULL DEFAULT 1,
     `created_by`    VARCHAR(36) NOT NULL DEFAULT 'SYS',
-    `created_on`    TIMESTAMP NOT NULL DEFAULT current_timestamp,
+    `created_on`    TIMESTAMP   NOT NULL DEFAULT current_timestamp,
     `modified_by`   VARCHAR(36) NULL,
-    `modified_on`   TIMESTAMP NULL ON UPDATE current_timestamp
+    `modified_on`   TIMESTAMP   NULL ON UPDATE current_timestamp
 );
