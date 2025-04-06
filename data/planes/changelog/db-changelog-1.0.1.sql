@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
--- changeset pinardm:db-changelog-1.0.0.sql logicalFilePath:file_1.0.0
+-- changeset mpinard:db-changelog-1.0.1.sql logicalFilePath:file_1.0.1
 CREATE TABLE `airport`
 (
     `id`            VARCHAR(36) NOT NULL PRIMARY KEY,
@@ -17,4 +17,3 @@ CREATE TABLE `airport`
     `modified_by`   VARCHAR(36) NULL,
     `modified_on`   TIMESTAMP NULL ON UPDATE current_timestamp
 );
-

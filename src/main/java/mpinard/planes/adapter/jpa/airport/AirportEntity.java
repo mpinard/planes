@@ -1,17 +1,16 @@
 package mpinard.planes.adapter.jpa.airport;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
-import mpinard.planes.domain.airport.AirportClass;
 import mpinard.planes.domain.airport.AirportId;
 
 @Entity
@@ -36,7 +35,7 @@ public class AirportEntity {
     private String continent;
 
     @Column(name = "airport_class", nullable = false)
-    private AirportClass airportClass;
+    private int airportClass;
 
     @Column(nullable = false)
     private int population;

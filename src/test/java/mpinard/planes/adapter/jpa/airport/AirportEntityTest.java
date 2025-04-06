@@ -14,7 +14,7 @@ class AirportEntityTest {
             .name("Berlin Airport")
             .country("Germany")
             .continent("Europe")
-            .airportClass(AirportClass.TWO)
+            .airportClass(2)
             .population(3769495)
             .latitude(new BigDecimal("52.5200")) 
             .longitude(new BigDecimal("13.4050"))
