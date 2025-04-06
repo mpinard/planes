@@ -1,10 +1,10 @@
 package mpinard.planes.adapter.jpa.airport;
 
-import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
-import mpinard.planes.domain.airport.AirportClass;
+
+import org.junit.jupiter.api.Test;
 
 class AirportEntityTest {
 
@@ -25,7 +25,7 @@ class AirportEntityTest {
         assertThat(airport.getName()).isEqualTo("Berlin Airport");
         assertThat(airport.getCountry()).isEqualTo("Germany");
         assertThat(airport.getContinent()).isEqualTo("Europe");
-        assertThat(airport.getAirportClass()).isEqualTo(AirportClass.TWO);
+        assertThat(airport.getAirportClass()).isEqualTo(2);
         assertThat(airport.getPopulation()).isEqualTo(3769495);
         assertThat(airport.getLatitude()).isEqualTo(new BigDecimal("52.5200"));
         assertThat(airport.getLongitude()).isEqualTo(new BigDecimal("13.4050"));

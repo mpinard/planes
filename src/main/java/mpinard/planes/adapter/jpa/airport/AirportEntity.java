@@ -49,5 +49,7 @@ public class AirportEntity {
     @Column(nullable = false)
     private boolean open;
 
+    @Column(nullable = false)
+    private Integer version;
 
 }
